@@ -14,38 +14,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.agile.restaurant.dto.RestaurantPostDto;
-import com.agile.restaurant.dto.RestaurantViewDto;
-import com.agile.restaurant.mapper.RestaurantMapper;
-import com.agile.restaurant.model.Restaurant;
-import com.agile.restaurant.service.interfaces.RestaurantService;
+import com.agile.restaurant.dto.AddressPostDto;
+import com.agile.restaurant.dto.AddressViewDto;
+import com.agile.restaurant.mapper.AddressMapper;
+import com.agile.restaurant.model.Address;
+import com.agile.restaurant.service.interfaces.AddressService;
 
 @RestController
-@RequestMapping("api/v1/restaurants")
-public class RestaurantController {
+@RequestMapping("api/v1/addresses")
+public class AddressController {
 	
-	private final RestaurantService service;
-	private final RestaurantMapper mapper;
+	private final AddressService service;
+	private final AddressMapper mapper;
 
-	public RestaurantController(RestaurantService service, RestaurantMapper mapper) {
+	public AddressController(AddressService service, AddressMapper mapper) {
 		super();
 		this.service = service;
 		this.mapper = mapper;
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<RestaurantViewDto>> findAll() {
+	public ResponseEntity<List<AddressViewDto>> findAll() {
 		return ResponseEntity.ok(mapper.toViewDtos(service.findAll()));
 	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity<RestaurantViewDto> findById(@PathVariable Long id) {
+	public ResponseEntity<AddressViewDto> findById(@PathVariable Long id) {
 		return ResponseEntity.ok(mapper.toViewDto(service.findById(id)));
 	}
 	
 	@PostMapping
-	public ResponseEntity<RestaurantViewDto> create(@RequestBody RestaurantPostDto restaurant) {
-		Restaurant created = service.save(restaurant);
+	public ResponseEntity<AddressViewDto> create(@RequestBody AddressPostDto address) {
+		Address created = service.save(address);
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")
@@ -55,8 +55,8 @@ public class RestaurantController {
 	}
 	
 	@PutMapping("{id}") 
-	public ResponseEntity<RestaurantViewDto> update(@RequestBody RestaurantPostDto restaurant, @PathVariable Long id) {
-		return ResponseEntity.ok(mapper.toViewDto(service.update(restaurant, id)));
+	public ResponseEntity<AddressViewDto> update(@RequestBody AddressPostDto address, @PathVariable Long id) {
+		return ResponseEntity.ok(mapper.toViewDto(service.update(address, id)));
 	}
 	
 	@DeleteMapping("{id}")
@@ -64,5 +64,7 @@ public class RestaurantController {
 		service.deleteById(id);
 		return ResponseEntity.ok().build();
 	}
+	
+	
 
 }
