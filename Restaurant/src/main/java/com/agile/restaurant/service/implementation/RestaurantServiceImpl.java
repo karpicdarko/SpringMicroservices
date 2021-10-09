@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.agile.restaurant.dto.RestaurantPostDto;
+import com.agile.restaurant.dto.restaurant.RestaurantPostDto;
 import com.agile.restaurant.model.Restaurant;
 import com.agile.restaurant.repository.RestaurantRepository;
 import com.agile.restaurant.service.interfaces.RestaurantService;

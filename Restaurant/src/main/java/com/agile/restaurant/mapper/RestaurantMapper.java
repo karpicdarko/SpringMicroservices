@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.agile.restaurant.dto.RestaurantViewDto;
+import com.agile.restaurant.dto.restaurant.RestaurantViewDto;
 import com.agile.restaurant.model.Restaurant;
 
 @Mapper()

@@ -2,7 +2,7 @@ package com.agile.restaurant.service.interfaces;
 
 import java.util.List;
 
-import com.agile.restaurant.dto.RestaurantPostDto;
+import com.agile.restaurant.dto.restaurant.RestaurantPostDto;
 import com.agile.restaurant.model.Restaurant;
 
 public interface RestaurantService {

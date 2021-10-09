@@ -1,4 +1,4 @@
-package com.agile.restaurant.dto;
+package com.agile.restaurant.dto.restaurant;
 
 public abstract class RestaurantDto {
 	private String name;
