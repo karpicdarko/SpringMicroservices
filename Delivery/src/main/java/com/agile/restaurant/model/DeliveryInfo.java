@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class DeliveryInfo implements Serializable{
@@ -21,28 +22,29 @@ public class DeliveryInfo implements Serializable{
 	private Boolean isPickedUp;
 	
 	private LocalDateTime timeOfDelivery;
+	
+	@ManyToOne
+	private Address address;
 
 	public DeliveryInfo() {
 		super();
 	}
 
-	public DeliveryInfo(String state, Boolean isPickedUp, LocalDateTime timeOfDelivery) {
+	public DeliveryInfo(String state, Boolean isPickedUp, LocalDateTime timeOfDelivery, Address address) {
 		super();
 		this.state = state;
 		this.isPickedUp = isPickedUp;
 		this.timeOfDelivery = timeOfDelivery;
+		this.address = address;
 	}
 
-	public DeliveryInfo(Long id, String state, Boolean isPickedUp, LocalDateTime timeOfDelivery) {
+	public DeliveryInfo(Long id, String state, Boolean isPickedUp, LocalDateTime timeOfDelivery, Address address) {
 		super();
 		this.id = id;
 		this.state = state;
 		this.isPickedUp = isPickedUp;
 		this.timeOfDelivery = timeOfDelivery;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+		this.address = address;
 	}
 
 	public Long getId() {
@@ -59,6 +61,10 @@ public class DeliveryInfo implements Serializable{
 
 	public LocalDateTime getTimeOfDelivery() {
 		return timeOfDelivery;
+	}
+
+	public Address getAddress() {
+		return address;
 	}
 	
 	

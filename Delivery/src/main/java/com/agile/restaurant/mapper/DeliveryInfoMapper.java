@@ -10,7 +10,15 @@ import com.agile.restaurant.model.DeliveryInfo;
 @Mapper()
 public interface DeliveryInfoMapper {
 	
-	DeliveryInfoViewDto toViewDto(DeliveryInfo deliveryInfo);
+	default DeliveryInfoViewDto toViewDto(DeliveryInfo deliveryInfo) {
+		DeliveryInfoViewDto viewDto = new DeliveryInfoViewDto();
+		viewDto.setId(deliveryInfo.getId());
+		viewDto.setIsPickedUp(deliveryInfo.getIsPickedUp());
+		viewDto.setState(deliveryInfo.getState());
+		viewDto.setTimeOfDelivery(deliveryInfo.getTimeOfDelivery());
+		viewDto.setAddress(deliveryInfo.getAddress().getStreet() + " " + deliveryInfo.getAddress().getStreetNumber() + ", " + deliveryInfo.getAddress().getZipCode() + " " + deliveryInfo.getAddress().getCity());
+		return viewDto;
+	}
 	List<DeliveryInfoViewDto> toViewDtos(List<DeliveryInfo> deliveryInfos);
 
 }
