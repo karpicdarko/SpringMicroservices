@@ -50,15 +50,15 @@ public class OrderServiceImpl implements OrderService{
 		MenuItem menuItem = restaurantRestTemplate.getMenuItemById(order.getItemId());
 		Consumer consumer = consumerRestTemplate.getConsumerById(order.getConsumerId());
 		DeliveryInfo deliveryInfo = deliveryRestTemplate.getDeliveryInfoById(order.getDeliveryId());
-//		Deliverer deliverer = deliveryRestTemplate.getDelivererById(order.getDelivererId());
-		Order forCreate = new Order(order.getState(), order.getQuantity(), menuItem, consumer, deliveryInfo);
+		Deliverer deliverer = deliveryRestTemplate.getDelivererById(order.getDelivererId());
+		Order forCreate = new Order(order.getState(), order.getQuantity(), menuItem, consumer, deliveryInfo, deliverer);
 		return repository.save(forCreate);
 	}
 
 	@Override
 	public Order update(OrderPostDto updated, Long id) {
 		Order found = repository.findById(id).orElseThrow(() -> new RuntimeException("No order with specified id"));
-		Order forUpdate = new Order(found.getId(), updated.getState(), found.getQuantity(), found.getMenuItem(), found.getConsumer(), found.getDeliveryInfo());
+		Order forUpdate = new Order(found.getId(), updated.getState(), found.getQuantity(), found.getMenuItem(), found.getConsumer(), found.getDeliveryInfo(), found.getDeliverer());
 		return repository.save(forUpdate);
 	}
 

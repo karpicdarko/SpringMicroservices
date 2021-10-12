@@ -22,6 +22,9 @@ public class Deliverer implements Serializable {
 	private String lastName;
 	
 	private Boolean available;
+	
+	@OneToMany(mappedBy = "deliverer")
+	private List<Order> orders;
 
 	public Deliverer() {
 		super();
@@ -57,5 +60,10 @@ public class Deliverer implements Serializable {
 	public Boolean getAvailable() {
 		return available;
 	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+	
 
 }

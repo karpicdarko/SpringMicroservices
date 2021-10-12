@@ -31,20 +31,24 @@ public class Order implements Serializable{
 	@ManyToOne
 	private DeliveryInfo deliveryInfo;
 	
+	@ManyToOne
+	private Deliverer deliverer;
+	
 	public Order() {
 		super();
 	}
 	
-	public Order(String state, Integer quantity, MenuItem menuItem, Consumer consumer, DeliveryInfo deliveryInfo) {
+	public Order(String state, Integer quantity, MenuItem menuItem, Consumer consumer, DeliveryInfo deliveryInfo, Deliverer deliverer) {
 		super();
 		this.state = state;
 		this.quantity = quantity;
 		this.menuItem = menuItem;
 		this.consumer = consumer;
 		this.deliveryInfo = deliveryInfo;
+		this.deliverer = deliverer;
 	}
 
-	public Order(Long id, String state, Integer quantity, MenuItem menuItem, Consumer consumer, DeliveryInfo deliveryInfo) {
+	public Order(Long id, String state, Integer quantity, MenuItem menuItem, Consumer consumer, DeliveryInfo deliveryInfo, Deliverer deliverer) {
 		super();
 		this.id = id;
 		this.state = state;
@@ -52,6 +56,7 @@ public class Order implements Serializable{
 		this.menuItem = menuItem;
 		this.consumer = consumer;
 		this.deliveryInfo = deliveryInfo;
+		this.deliverer = deliverer;
 	}
 
 	public Long getId() {
@@ -77,5 +82,10 @@ public class Order implements Serializable{
 	public DeliveryInfo getDeliveryInfo() {
 		return deliveryInfo;
 	}
+
+	public Deliverer getDeliverer() {
+		return deliverer;
+	}
+	
 	
 }

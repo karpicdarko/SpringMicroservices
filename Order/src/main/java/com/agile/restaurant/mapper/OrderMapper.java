@@ -14,6 +14,7 @@ public interface OrderMapper {
 	@Mapping(source = "menuItem.id", target = "itemId")
 	@Mapping(source = "consumer.id", target = "consumerId")
 	@Mapping(source = "deliveryInfo.id", target = "deliveryInfoId")
+	@Mapping(source = "deliverer.id", target = "delivererId")
 	OrderViewDto toViewDto(Order order);
 	List<OrderViewDto> toViewDtos(List<Order> orders);
 }
