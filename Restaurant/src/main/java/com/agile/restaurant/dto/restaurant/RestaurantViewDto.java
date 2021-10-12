@@ -14,11 +14,9 @@ public class RestaurantViewDto extends RestaurantDto {
 		return id;
 	}
 	
-	
 	public List<String> getMenu() {
 		return menu;
 	}
-
 
 	public List<String> getAddresses() {
 		return addresses;

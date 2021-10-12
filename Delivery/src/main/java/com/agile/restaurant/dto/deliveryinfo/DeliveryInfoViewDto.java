@@ -4,22 +4,22 @@ public class DeliveryInfoViewDto extends DeliveryInfoDto {
 	
 	private Long id;
 	
-	private String address;
+	private Long addressId;
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getAddress() {
-		return address;
+	public Long getAddressId() {
+		return addressId;
 	}
 	
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddressId(Long id) {
+		this.addressId = id;
 	}
 	
 	

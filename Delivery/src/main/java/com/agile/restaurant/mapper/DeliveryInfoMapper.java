@@ -16,7 +16,7 @@ public interface DeliveryInfoMapper {
 		viewDto.setIsPickedUp(deliveryInfo.getIsPickedUp());
 		viewDto.setState(deliveryInfo.getState());
 		viewDto.setTimeOfDelivery(deliveryInfo.getTimeOfDelivery());
-		viewDto.setAddress(deliveryInfo.getAddress().getStreet() + " " + deliveryInfo.getAddress().getStreetNumber() + ", " + deliveryInfo.getAddress().getZipCode() + " " + deliveryInfo.getAddress().getCity());
+		viewDto.setAddressId(deliveryInfo.getAddress().getId());
 		return viewDto;
 	}
 	List<DeliveryInfoViewDto> toViewDtos(List<DeliveryInfo> deliveryInfos);

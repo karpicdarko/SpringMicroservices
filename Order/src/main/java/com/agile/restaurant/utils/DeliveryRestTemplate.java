@@ -9,7 +9,7 @@ import com.agile.restaurant.model.DeliveryInfo;
 @Service
 public class DeliveryRestTemplate {
 	private final RestTemplate restTemplate = new RestTemplate();
-	private final String DELIVERER_URL = "http://localhost:8083/api/v1/deliverer";
+	private final String DELIVERER_URL = "http://localhost:8083/api/v1/deliverers";
 	private final String DELIVERY_INFO_URL = "http://localhost:8083/api/v1/delivery-infos";
 	
 	public Deliverer getDelivererById(Long id) {
