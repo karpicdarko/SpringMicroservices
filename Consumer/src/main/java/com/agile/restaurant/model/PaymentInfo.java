@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -22,24 +23,31 @@ public class PaymentInfo implements Serializable{
 	private Date expiry;
 	
 	private String cvv;
+	
+	@ManyToOne
+	private Consumer consumer;
 
 	public PaymentInfo() {
 		super();
 	}
 
-	public PaymentInfo(String cardNumber, Date expiry, String cvv) {
+	public PaymentInfo(String cardNumber, Date expiry, String cvv, Consumer consumer) {
 		super();
 		this.cardNumber = cardNumber;
 		this.expiry = expiry;
 		this.cvv = cvv;
+		this.consumer = consumer;
 	}
 
-	public PaymentInfo(Long id, String cardNumber, Date expiry, String cvv) {
+	
+
+	public PaymentInfo(Long id, String cardNumber, Date expiry, String cvv, Consumer consumer) {
 		super();
 		this.id = id;
 		this.cardNumber = cardNumber;
 		this.expiry = expiry;
 		this.cvv = cvv;
+		this.consumer = consumer;
 	}
 
 	public Long getId() {
@@ -56,6 +64,10 @@ public class PaymentInfo implements Serializable{
 
 	public String getCvv() {
 		return cvv;
+	}
+
+	public Consumer getConsumer() {
+		return consumer;
 	}
 	
 	

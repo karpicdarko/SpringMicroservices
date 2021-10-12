@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Consumer implements Serializable{
-	
+public class Deliverer implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -21,32 +21,25 @@ public class Consumer implements Serializable{
 	
 	private String lastName;
 	
-	private String userName;
-	
-	private String password;
-	
-	@OneToMany(mappedBy = "consumer")
-	private List<PaymentInfo> paymentInfos;
+	private Boolean available;
 
-	public Consumer() {
+	public Deliverer() {
 		super();
 	}
 
-	public Consumer(String firstName, String lastName, String userName, String password) {
+	public Deliverer(String firstName, String lastName, Boolean available) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.userName = userName;
-		this.password = password;
+		this.available = available;
 	}
 
-	public Consumer(Long id, String firstName, String lastName, String userName, String password) {
+	public Deliverer(Long id, String firstName, String lastName, Boolean available) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.userName = userName;
-		this.password = password;
+		this.available = available;
 	}
 
 	public Long getId() {
@@ -61,18 +54,8 @@ public class Consumer implements Serializable{
 		return lastName;
 	}
 
-	public String getUserName() {
-		return userName;
+	public Boolean getAvailable() {
+		return available;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public List<PaymentInfo> getPaymentInfos() {
-		return paymentInfos;
-	}
-	
-	
 
 }

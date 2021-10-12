@@ -21,7 +21,7 @@ import com.agile.restaurant.model.PaymentInfo;
 import com.agile.restaurant.service.interfaces.PaymentInfoService;
 
 @RestController
-@RequestMapping("api/v1/payment-info")
+@RequestMapping("api/v1/payment-infos")
 public class PaymentInfoController {
 	
 	private final PaymentInfoService service;

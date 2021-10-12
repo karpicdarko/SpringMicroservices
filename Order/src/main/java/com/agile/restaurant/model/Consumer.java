@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Consumer implements Serializable{
+public class Consumer implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +26,7 @@ public class Consumer implements Serializable{
 	private String password;
 	
 	@OneToMany(mappedBy = "consumer")
-	private List<PaymentInfo> paymentInfos;
+	private List<Order> orders;
 
 	public Consumer() {
 		super();
@@ -69,10 +69,9 @@ public class Consumer implements Serializable{
 		return password;
 	}
 
-	public List<PaymentInfo> getPaymentInfos() {
-		return paymentInfos;
+	public List<Order> getOrders() {
+		return orders;
 	}
-	
-	
 
+	
 }
